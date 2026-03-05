@@ -54,3 +54,8 @@ async def get_alerts(state: str)->str:
 
     alerts=[format_alert(feature) for feature in data["features"]]
     return "\n\n".join(alerts)  
+
+@mcp.resource("echo://{message}")
+def echo_resource(message:str)->str:
+    """Echo a message"""
+    return f"echo: {message}"
